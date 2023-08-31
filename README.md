@@ -16,6 +16,9 @@ Are you a content creator looking to engage with your audience around the clock?
 
 6. **YouTube Integration:** Easily connect your YouTube channel to the code, and your livestream will be broadcasted directly to your subscribers.
 
+**Video Tutorial:**
+https://youtu.be/fLHlGo25BcE
+
 With our code, the world becomes your stage, and your audience can tune in whenever they want, day or night. Elevate your YouTube channel to the next level with 24/7 livestreaming. Get started today and watch your content reach new heights!
 
 
