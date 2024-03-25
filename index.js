@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Put The web Adress In Uptimerobot!`)
+  console.log(`Your Live Stream Is Running..`)
 })
 
 const { exec } = require('child_process');
