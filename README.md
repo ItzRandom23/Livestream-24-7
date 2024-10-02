@@ -1,8 +1,8 @@
-# Seamless 24/7 YouTube Livestreaming 
+<center><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Live%20Stream%2024/7&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" /></center>
 
 Are you a content creator looking to engage with your audience around the clock? Introducing our groundbreaking code that makes 24/7 YouTube livestreaming a breeze!
 
-**Key Features:**
+## Key Features:
 
 1. **User-Friendly:** Our code is designed with simplicity in mind. No technical expertise required - just follow a few simple steps and you're live 24/7.
 
@@ -16,14 +16,16 @@ Are you a content creator looking to engage with your audience around the clock?
 
 6. **YouTube Integration:** Easily connect your YouTube channel to the code, and your livestream will be broadcasted directly to your subscribers.
 
-**Video Tutorial:**
+## Video Tutorial:
 
 https://youtu.be/fLHlGo25BcE
 
-**Repl.it Project**
+## Repl.it Project
 
 https://replit.com/@CodingisLovexD/Live-on-Youtube
 
 With our code, the world becomes your stage, and your audience can tune in whenever they want, day or night. Elevate your YouTube channel to the next level with 24/7 livestreaming. Get started today and watch your content reach new heights!
 
+## Support
 
+For support and to join our community, visit our [Discord server](https://discord.gg/cool-music-support-925619107460698202).
