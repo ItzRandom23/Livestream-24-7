@@ -39,7 +39,7 @@ To apply these changes, simply edit the `live.sh` file and adjust the parameters
 
 ## Video Tutorial:
 
-https://youtu.be/fLHlGo25BcE
+https://youtu.be/mcWJEpqfOQI
 
 With our code, the world becomes your stage, and your audience can tune in whenever they want, day or night. Elevate your online presence to the next level with 24/7 livestreaming across multiple platforms. Get started today and watch your content reach new heights!
 
