@@ -1,6 +1,34 @@
 {
+  "name": "livestream-24-7",
+  "version": "2.0.0",
+  "description": "A 24/7 livestreaming code that supports multiple platforms like YouTube, Twitch, Facebook Live etc that supports RTMP streaming.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItzRandom23/Livestream-24-7.git"
+  },
+  "keywords": [
+    "livestreaming",
+    "RTMP",
+    "YouTube",
+    "Twitch",
+    "Facebook Live",
+    "DLive",
+    "Trovo",
+    "LinkedIn Live",
+    "multi-platform"
+  ],
+  "author": "Itz Random",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ItzRandom23/Livestream-24-7/issues"
+  },
+  "homepage": "https://github.com/ItzRandom23/Livestream-24-7#readme",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.21.2",
     "ffmpeg": "^0.0.4"
   }
 }
