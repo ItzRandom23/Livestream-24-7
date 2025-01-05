@@ -1,54 +1,73 @@
-#!/bin/bash
+#-------------------------------------------------------------------------------------------------------------
+# Customization Section
+Video_File="/workspaces/Livestream-24-7/video.mp4" # Change the path according to your system
+Audio_File="/workspaces/Livestream-24-7/songs/Polvo Rodante.mp3" # Change the path according to your system
+Audio_Bitrate="128k" # Options: "64k" , "128k" , "320k"
+FPS=30  # Options: "60" , "50", "30"
+Video_Quality="1440p"  # Options: "2160p", "1440p", "1080p", "720p", "480p", "360p", "144p"
+Stream_Key="qfcd-v3wp-hcqb-kjs1-1eqc"  # Replace with your actual stream key
+RTMP_URL="rtmp://a.rtmp.youtube.com/live2"  # Replace with your platform's RTMP URL (for YouTube, use the default URL)
+#-------------------------------------------------------------------------------------------------------------
 
-file_list="filelist.txt"
-rm -f "$file_list"
-for f in songs/*.mp3; do
-    echo "file '$PWD/$f'" >> "$file_list"
-done
+if [ ! -f "$Video_File" ]; then
+    echo "Error: Video file not found at $Video_File!"
+    exit 1
+fi
 
-video_file="video.mp4" # Name of your video file
-quality="854:480"      # Set video resolution (e.g., 1280:720 for 720p, 1920:1080 for 1080p, 3840:2160 for 4K)
-                         # Resolution Options:
-                         # 480p -> "854:480" (Low quality, for small screens or low bandwidth)
-                         # 720p -> "1280:720" (Standard HD, good for most purposes)
-                         # 1080p -> "1920:1080" (Full HD, widely used for higher quality)
-                         # 1440p -> "2560:1440" (Quad HD, better quality than Full HD)
-                         # 4K -> "3840:2160" (Ultra HD, very high quality for large displays)
-fps=30                   # Set frames per second (e.g., 30, 50, 60)
-                         # Recommended: 30 for standard, 50 or 60 for smooth motion
-bitrate="1500"         # Set video bitrate (e.g., 1500k, 5000k, 10000k)
-                         # Video Bitrate Recommendations:
-                         # 480p -> 1500k
-                         # 720p -> 2500k-3500k
-                         # 1080p -> 5000k-10000k
-                         # 1440p -> 10000k-15000k
-                         # 4K -> 20000k-50000k or higher for ultra-high quality
-audio_bitrate="320k"     # Set audio bitrate (e.g., 64k, 128k, 320k)
-                         # Audio Bitrate Recommendations:
-                         # 64k -> Low quality audio (for voice streams, e.g., podcasts)
-                         # 128k -> Good audio quality (stereo, standard quality)
-                         # 320k -> High quality audio (for music, good fidelity)
-audio_channels=2         # Set audio channels (1 for mono, 2 for stereo)
-                         # Audio Channels:
-                         # 1 -> Mono (single channel, lower quality)
-                         # 2 -> Stereo (dual channel, standard for most streams)
-sample_rate=44100        # Set audio sample rate (e.g., 44100, 48000)
-                         # Recommended: 44100 for most use cases, 48000 for professional audio
-threads=4                # Number of threads to use (depends on CPU cores)
-                         # Recommended: Match your CPU core count
-stream_url="rtmp://a.rtmp.youtube.com/live2/sch2-1qmh-zgam-x7za-4z9c"  # Streaming destination URL
-                         # Replace with your platform's RTMP URL and stream key
+if [ ! -f "$Audio_File" ]; then
+    echo "Error: Audio file not found at $Audio_File!"
+    exit 1
+fi
 
+if ! echo "$Audio_Bitrate" | grep -qE '^(64k|128k|320k)$'; then
+    echo "Error: Invalid audio bitrate $Audio_Bitrate! Valid options are '64k', '128k', or '320k'."
+    exit 1
+fi
 
-# FFmpeg Command
-ffmpeg -stream_loop -1 -re -i "$video_file" -f concat -safe 0 -i "$file_list" \
--vcodec libx264 -preset ultrafast -pix_fmt yuv420p -r "$fps" -g "$((fps * 2))" -keyint_min "$((fps * 2))" \
--b:v "$bitrate"k -maxrate "$bitrate"k -bufsize "$((2 * bitrate))k" \
--c:a aac -b:a "$audio_bitrate" -ar "$sample_rate" -ac "$audio_channels" -movflags +faststart \
--vf "scale=$quality" \
--f flv "$stream_url" \
--reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 2 -threads "$threads" -y
+if ! echo "$FPS" | grep -qE '^(30|50|60)$'; then
+    echo "Error: Invalid FPS value $FPS! Valid options are '30', '50', or '60'."
+    exit 1
+fi
 
+if [ -z "$Stream_Key" ]; then
+    echo "Error: Stream key is missing. Please provide a valid stream key."
+    exit 1
+fi
 
+if [ -z "$RTMP_URL" ]; then
+    echo "Error: RTMP URL is missing. Please provide a valid RTMP server URL."
+    exit 1
+fi
 
-rm -f "$file_list"
+if ! echo "$Video_Quality" | grep -qE '^(2160p|1440p|1080p|720p|480p|360p|144p)$'; then
+    echo "Error: Invalid video quality $Video_Quality! Valid options are '2160p', '1440p', '1080p', '720p', '480p', '360p', or '144p'."
+    exit 1
+fi
+
+if [ "$Video_Quality" = "2160p" ]; then
+    Resolution="3840x2160"
+    Video_Bitrate="5000k"  
+elif [ "$Video_Quality" = "1440p" ]; then
+    Resolution="2560x1440"
+    Video_Bitrate="4000k"  
+elif [ "$Video_Quality" = "1080p" ]; then
+    Resolution="1920x1080"
+    Video_Bitrate="3000k"
+elif [ "$Video_Quality" = "720p" ]; then
+    Resolution="1280x720"
+    Video_Bitrate="1500k"  
+elif [ "$Video_Quality" = "480p" ]; then
+    Resolution="854x480"
+    Video_Bitrate="1000k"
+elif [ "$Video_Quality" = "360p" ]; then
+    Resolution="640x360"
+    Video_Bitrate="750k"
+elif [ "$Video_Quality" = "144p" ]; then
+    Resolution="256x144"
+    Video_Bitrate="400k"
+else
+    Resolution="1920x1080"
+    Video_Bitrate="3000k"
+fi
+
+ffmpeg -stream_loop -1 -re -i "$Video_File" -stream_loop -1 -re -i "$Audio_File" -vcodec libx264 -pix_fmt yuvj420p -maxrate 20048k -preset veryfast -r $FPS -framerate 30 -g 50 -c:a aac -b:a $Audio_Bitrate -ar 44100 -strict experimental -video_track_timescale 1000 -b:v $Video_Bitrate -s $Resolution -f flv  "$RTMP_URL/$Stream_Key"

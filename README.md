@@ -19,23 +19,27 @@ Are you a content creator looking to engage with your audience around the clock?
 ## Customization:
 The following elements are customizable to fit your needs:
 
-1. **Video Source:** set any video you want to stream.
 
-2. **Resolution:** Set video resolution of your choice.
+- Video File: Set the path to your video file (e.g., `.mp4`).
 
-3. **Frames per Second:** Set the desired FPS (30, 50, 60).
+- Audio File: Set the path to your audio file (e.g., `.mp3`).
 
-4. **Bitrate:** Adjust video and audio bitrates for desired quality.
+- Audio Bitrate: Choose the audio bitrate (e.g., `64k`, `128k`, `320k`).
 
-5. **Audio Channels:** Mono or Stereo audio options.
+- FPS: Set the desired FPS (e.g., `30`, `60`).
 
-6. **Sample Rate:** Select the sample rate for audio.
+- Video Quality: Select video quality options (e.g., `2160p`, `1440p`, `1080p`, `720p`, `480p`, `360p`, `144p`).
 
-7. **Thread Count:** Set the number of threads for processing based on your CPU core count.
+- Resolution: Automatically set based on the selected video quality (e.g., `3840x2160` for `2160p`).
 
-8. **RTMP URL:** Customize the streaming destination URL (for services like YouTube).
+- Bitrate: Video bitrate automatically adjusts based on video quality selection.
 
-To apply these changes, simply edit the `live.sh` file and adjust the parameters to your preferences.
+- Error Handling: The script checks for missing files and invalid input (FPS and video quality).
+
+- FFmpeg Command: Automatically starts streaming to the specified RTMP URL.
+
+How to Apply Changes:
+Edit the `live.sh` file and adjust the parameters to your preferences.
 
 ## Video Tutorial:
 

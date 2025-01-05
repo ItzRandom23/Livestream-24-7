@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Your Live Stream Is Running..`)
+  console.log(`Sending data to live stream!`)
 })
 
 const { exec } = require('child_process');
