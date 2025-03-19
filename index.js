@@ -1,22 +1,27 @@
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-  res.send('Your Live Stream Is Online Now!')
-})
-
-app.listen(port, () => {
-  console.log(`Sending data to live stream!`)
-})
-
 const { exec } = require('child_process');
-var yourscript = exec('sh live.sh',
-        (error, stdout, stderr) => {
-            console.log(stdout);
-            console.log(stderr);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-        });
+const scriptPath = "/workspaces/Livestream-24-7/live.sh"; // Update with the correct path
 
+const yourscript = exec(`bash ${scriptPath}`, (error, stdout, stderr) => {
+    if (error) {
+        console.error(`Execution error: ${error.message}`);
+        return;
+    }
+    console.log("Output:", stdout);
+    console.error("Errors (if any):", stderr);
+});
+
+// Listen to stdout and stderr in real-time
+yourscript.stdout.on('data', (data) => {
+    console.log(`STDOUT: ${data}`);
+    if (data.includes('STREAM_LIVE')) {
+        console.log('Confirmation: Live stream has started successfully!');
+    }
+});
+
+yourscript.stderr.on('data', (data) => {
+    console.error(`STDERR: ${data}`);
+});
+
+yourscript.on('close', (code) => {
+    console.log(`Child process exited with code ${code}`);
+});

@@ -4,42 +4,42 @@ Are you a content creator looking to engage with your audience around the clock?
 
 ## Key Features:
 
-1. **User-Friendly:** Our code is designed with simplicity in mind. No technical expertise required - just follow a few simple steps and you're live 24/7.
+- **User-Friendly**: Our code is designed with simplicity in mind. No technical expertise required - just follow a few simple steps and you're live 24/7.
 
-2. **Stability Guaranteed:** Bid farewell to frustrating interruptions and technical glitches. Our code ensures a smooth and stable livestreaming experience, so you can focus on creating content.
+- **Stability Guaranteed**: Bid farewell to frustrating interruptions and technical glitches. Our code ensures a smooth and stable livestreaming experience, so you can focus on creating content.
 
-3. **Set and Forget:** Once set up, the code runs autonomously. No need for constant monitoring or restarts. It's like having a dedicated streaming assistant.
+- **Set and Forget**: Once set up, the code runs autonomously. No need for constant monitoring or restarts. It's like having a dedicated streaming assistant.
 
-4. **Customization:** Tailor your livestream to fit your brand and style. Add overlays, graphics, and personalized messages to keep your viewers engaged.
+- **Resource Efficient**: Our code is designed to be resource-friendly, so it won't strain your hardware or bandwidth. Livestream 24/7 worry-free.
 
-5. **Resource Efficient:** Our code is designed to be resource-friendly, so it won't strain your hardware or bandwidth. Livestream 24/7 worry-free.
-
-6. **Multi-Platform Integration:** Easily connect the code to your preferred streaming platform (YouTube, Twitch, Facebook Live, DLive, Trovo, LinkedIn Live, and any other platform that supports RTMP), and your livestream will be broadcasted directly to your audience on multiple platforms simultaneously.
+- **Multi-Platform Integration**: Easily connect the code to your preferred streaming platform (YouTube, Twitch, Facebook Live, DLive, Trovo, LinkedIn Live, and any other platform that supports RTMP), and your livestream will be broadcasted directly to your audience on multiple platforms simultaneously.
 
 ## Customization:
+
 The following elements are customizable to fit your needs:
 
+- **Video File**: Set the path to your video file (e.g., .mp4).
 
-- Video File: Set the path to your video file (e.g., `.mp4`).
+- **Audio File**: Set the path to your audio file (e.g., .mp3).
 
-- Audio File: Set the path to your audio file (e.g., `.mp3`).
+- **Audio Bitrate**: Choose the audio bitrate (e.g., 64k, 128k, 320k).
 
-- Audio Bitrate: Choose the audio bitrate (e.g., `64k`, `128k`, `320k`).
+- **FPS**: Set the desired FPS (e.g., 30, 60).
 
-- FPS: Set the desired FPS (e.g., `30`, `60`).
+- **Video Quality**: Select video quality options (e.g., 2160p, 1440p, 1080p, 720p, 480p, 360p, 144p).
 
-- Video Quality: Select video quality options (e.g., `2160p`, `1440p`, `1080p`, `720p`, `480p`, `360p`, `144p`).
+- **Resolution**: Automatically set based on the selected video quality (e.g., 3840x2160 for 2160p).
 
-- Resolution: Automatically set based on the selected video quality (e.g., `3840x2160` for `2160p`).
+- **Bitrate**: Video bitrate automatically adjusts based on video quality selection.
 
-- Bitrate: Video bitrate automatically adjusts based on video quality selection.
+- **Error Handling**: The script checks for missing files and invalid input (FPS and video quality).
 
-- Error Handling: The script checks for missing files and invalid input (FPS and video quality).
+- **FFmpeg Command**: Automatically starts streaming to the specified RTMP URL.
 
-- FFmpeg Command: Automatically starts streaming to the specified RTMP URL.
+## How to Apply Changes:
 
-How to Apply Changes:
-Edit the `live.sh` file and adjust the parameters to your preferences.
+1. Set correct path of your `live.sh` in `index.js`.
+2. Edit the `live.sh` file and adjust the parameters to your preferences.
 
 ## Video Tutorial:
 
@@ -49,4 +49,4 @@ With our code, the world becomes your stage, and your audience can tune in whene
 
 ## Support
 
-For support and to join our community, visit our [Discord server](https://discord.gg/cool-music-support-925619107460698202).
+For support and to join our community, visit our [Discord server](https://discord.gg/3pNM2H3be3).

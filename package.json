@@ -1,6 +1,6 @@
 {
   "name": "livestream-24-7",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A 24/7 livestreaming code that supports multiple platforms like YouTube, Twitch, Facebook Live etc that supports RTMP streaming.",
   "main": "index.js",
   "scripts": {
